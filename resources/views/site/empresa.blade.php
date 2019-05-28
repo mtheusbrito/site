@@ -1,6 +1,8 @@
 @extends('site_template.base')
 @section('conteudo')
+<div class="container">
+        <h1>Empresa</h1>
 
-<h1>A empresa</h1>
+</div>
 
 @endsection

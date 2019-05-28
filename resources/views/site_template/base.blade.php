@@ -1,6 +1,11 @@
-<thml>
+<thml lang="pt-br">
   <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
         <link rel='stylesheet' type='text/css' href='/css/app.css'>
+        <link rel="stylesheet" type="text/css" href="/css/carosel.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <title>Site</title>
   </head>  
@@ -41,21 +46,17 @@
                   }
                 }
         </style>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                <h5 class="my-0 mr-md-auto font-weight-normal">Lorem ipsum</h5>
-                <nav class="my-2 my-md-0 mr-md-3">
-                  <a class="p-2 text-dark" href="/">Início</a>
-                  <a class="p-2 text-dark" href="/empresa">A empresa</a>
-                  <a class="p-2 text-dark" href="/projetos">Projetos</a>
-                  <a class="p-2 text-dark" href="/solucoes">Soluções</a>
-                  <a class="p-2 text-dark" href="/contato">Contato</a>
+        @include('site_template.header')
+    <main role="main">
 
-                </nav>
-              </div>
-     <main role="main" class="container">
         @yield('conteudo')
 
      </main>
 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/js/vendor/holder.js"></script>
   </body>
 </thml>

@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', 'SiteController@inicio');
-Route::get('/empresa', 'SiteController@empresa');
-Route::get('/projetos', 'SiteController@projetos');
-Route::get('/solucoes', 'SiteController@solucoes');
-Route::get('/contato', 'SiteController@contato');
+//rotas site
+Route::get('/', 'SiteController@inicio')->name('site.inicio');
+Route::get('/empresa', 'SiteController@empresa')->name('site.empresa');
+Route::get('/projetos', 'SiteController@projetos')->name('site.projetos');
+Route::get('/solucoes', 'SiteController@solucoes')->name('site.solucoes');
+Route::get('/contato', 'SiteController@contato')->name('site.contato');
 
-
-
-
+//rotas adm site
