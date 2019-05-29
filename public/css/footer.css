@@ -21,8 +21,13 @@ footer {
 .ul-social li {
     display: inline;
     font-size: 1.2em;
+    padding-left: .7rem;
 }
 
-li {
-    padding-left: .7rem;
+.ul-social li:first-child {
+    padding-left: 0;
+}
+
+.contato i {
+    padding-right: .7rem;
 }

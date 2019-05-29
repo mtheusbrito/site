@@ -66,11 +66,9 @@
           
             <hr class="featurette-divider">
 
-
-
+            <h2 class="featurette-heading">Veja o que podemos fazer por seu negócio!</h2>
+            
             <div class="row featurette">
-                   
-                    <h2 class="featurette-heading">Veja o que podemos fazer por seu negócio!</h2>
                     <div class="row">
                             <div class="col-lg-4">
                                     <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
@@ -89,10 +87,10 @@
                                     <p>Aplicativos próprios de gestão de Varejo e Restaurantes, com emissão de NFC-e, NF-e e todos os demais relatórios necessários ao cumprimento das obrigações fiscais e tributárias.</p>
                             </div>
                     </div>
-                
-
 
             </div>
+            <hr class="featurette-divider">
+
     </div>
     
 @endsection

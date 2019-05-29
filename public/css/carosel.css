@@ -61,7 +61,12 @@ body {
     font-weight: 400;
 }
 
+.marketing .col-lg-4 h2 {
+    margin-top: 20px;
+}
+
 .marketing .col-lg-4 p {
+    /* margin-top: .75rem; */
     margin-right: .75rem;
     margin-left: .75rem;
 }
