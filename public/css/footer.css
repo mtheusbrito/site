@@ -1,5 +1,8 @@
 footer {
     background-color: #fff;
+    border-top: 1px solid #dee2e6!important;
+    box-sizing: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+    box-shadow: 0 .125rem 5px -5px #333;
 }
 
 .footer-top {

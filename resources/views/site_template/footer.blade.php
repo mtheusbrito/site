@@ -12,7 +12,7 @@
             <div class="contato">
                 <span><i class="fas fa-map-marker-alt"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> <br/>
                 <span><i class="fas fa-phone"></i>(22) 999979775</span> <br/>
-                <span><i class="fas fa-envelope"></i>contato@gmail.com</span> <br/>     
+                <span><i class="fas fa-envelope"></i><a href="mailto:mtheus.dev@gmail.com">contato@gmail.com</a></span> <br/>     
             </div>
     </div>
         <div class="col-md-4">
