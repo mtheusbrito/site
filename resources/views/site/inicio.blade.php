@@ -8,32 +8,32 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="/img/slide2.jpg" alt="First slide">
+            <img class="d-block w-100" src="/img/slide.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
                     <h5>Lorem Ipsum</h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                   </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/img/slide2.jpg" alt="Second slide">
+            <img class="d-block w-100" src="/img/slide.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
                     <h5>Lorem Ipsum</h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                   </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/img/slide2.jpg" alt="Third slide">
+            <img class="d-block w-100" src="/img/slide.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
                     <h5>Lorem Ipsum</h5>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                   </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#myCarosel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#myCarosel" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
