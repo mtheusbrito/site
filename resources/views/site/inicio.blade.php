@@ -1,4 +1,4 @@
-@extends('site_template.base') 
+@extends('template.site_template.base') 
 @section('conteudo')
 <div id="myCarosel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">

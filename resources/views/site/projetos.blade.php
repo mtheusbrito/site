@@ -1,4 +1,4 @@
-@extends('site_template.base') @section('conteudo')
+@extends('template.site_template.base') @section('conteudo')
 <div class="container marketing">
     <hr class="featurette-divider">
     <div class="row featurette">

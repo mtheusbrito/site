@@ -1,4 +1,4 @@
-@extends('site_template.base') @section('conteudo')
+@extends('template.site_template.base') @section('conteudo')
 <div class="container marketing">
     <hr class="featurette-divider">
     <h2 class="featurette-heading" style="text-align: center">Soluções ágeis e confiáveis para gerir as mudanças e garantir a continuidade e rentabilidade de seu negócio.</h2>

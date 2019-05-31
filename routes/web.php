@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,14 @@ Route::get('/solucoes', 'SiteController@solucoes')->name('site.solucoes');
 Route::get('/contato', 'SiteController@contato')->name('site.contato');
 
 //rotas adm site
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/adm', 'AdmController@index')->name('adm.index');
+});
+
+//segunda mes de maio
+//dia 10 15 um mes atrasado
+
+Route::get('/login', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LoginController@logout')->name('logout');
