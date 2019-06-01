@@ -14,8 +14,19 @@
     <!-- Principal CSS do Bootstrap -->
     <link href="/css/app.css" rel="stylesheet">
 
+
+    {{-- Datatables CSS --}}
+    <link href="/css/datatables/datatables.min.css" rel="stylesheet">
+
     <!-- Estilos customizados para esse template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css"  rel="stylesheet">
+    
+
+    <!--Font Awesome 4.7.0 -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
 
   <body>
@@ -25,13 +36,10 @@
       <div class="row">
        @include('template.adm_template.sidebar')
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            @yield('conteudo')
-          </div>
-
-          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="margin-bottom: 10px;">
+            @include('template.adm_template.flash_messages')
+          @yield('conteudo')
+    
           
         </main>
       </div>
@@ -50,5 +58,19 @@
     <script>
       feather.replace()
     </script>
+
+
+
+ <!-- Datatables -->
+
+    <script src="/js/datatables/datatables.js"></script>
+    <script src="/js/datatables/traducao-datatables.js"></script>
+    <script src="/js/utils/paginate.js">
+      </script>
+    {{-- <script src="/js/sweetalert2.js"> --}}
+    {{-- </script> --}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+
   </body>
 </html>

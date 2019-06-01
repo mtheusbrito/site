@@ -23,7 +23,16 @@ Route::get('/contato', 'SiteController@contato')->name('site.contato');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/adm', 'AdmController@index')->name('adm.index');
+
+    Route::resource('/adm/projetos', 'ProjetoController');
+
+
+
+    //paginates
+    Route::get('/projetos/paginate', 'ProjetoController@paginate')->name('projetos.paginate');
 });
+
+
 
 //segunda mes de maio
 //dia 10 15 um mes atrasado
