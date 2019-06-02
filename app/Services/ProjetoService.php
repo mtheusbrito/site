@@ -23,16 +23,11 @@ class ProjetoService
         $this->exceptions = $exceptions;
     }
 
-    public function store(array $data, $path)
+    public function store(array $data)
     {
 
 
         try {
-
-            if ($path)
-                $data["imagem"] = 'storage/' . $path;
-
-
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $projeto = $this->repository->create($data);
 
@@ -46,13 +41,10 @@ class ProjetoService
         }
     }
 
-    public function update(array $data, $projeto_id, $path)
+    public function update(array $data, $projeto_id)
     {
 
         try {
-
-            if ($path)
-                $data["imagem"] = 'storage/' . $path;
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
             $projeto = $this->repository->update($data, $projeto_id);

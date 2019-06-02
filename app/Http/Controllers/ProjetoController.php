@@ -9,18 +9,20 @@ use App\Repositories\ProjetoRepository;
 use App\Services\ProjetoService;
 use Illuminate\Support\Facades\Response;
 use App\Requests\ProjetoUpdateRequest;
+use App\Utils\FileUtils;
 
 class ProjetoController extends Controller
 {
-
+    protected $fileUtils;
     protected $repository;
     protected $service;
 
 
-    public function __construct(ProjetoRepository $repository, ProjetoService $service)
+    public function __construct(ProjetoRepository $repository, ProjetoService $service, FileUtils $fileUtils)
     {
         $this->repository = $repository;
         $this->service = $service;
+        $this->fileUtils = $fileUtils;
     }
     public function index()
     {
@@ -43,13 +45,14 @@ class ProjetoController extends Controller
     }
     public function store(ProjetoCreateRequest $request)
     {
-        if ($request->hasFile('imagem')) {
-            $file = $request->file('imagem');
-            $filename   = time() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('projetos', $filename);
+        if ($request->hasFile('image')) {
+            $path = $this->fileUtils->upload($request->file('image'), 'projetos');
+            $request["imagem"] = $path;
         }
 
-        $request = $this->service->store($request->all(), isset($path) ? $path : null);
+        // dd($request->all());
+
+        $request = $this->service->store($request->all());
         $projeto = $request['success'] ? $request['data'] : null;
 
 
@@ -68,12 +71,11 @@ class ProjetoController extends Controller
     }
     public function update(ProjetoUpdateRequest $request, $projeto_id)
     {
-        if ($request->hasFile('imagem')) {
-            $file = $request->file('imagem');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('projetos', $filename);
+        if ($request->hasFile('image')) {
+            $path = $this->fileUtils->upload($request->file('image'), 'projetos');
+            $request["imagem"] = $path;
         }
-        $request = $this->service->update($request->all(), $projeto_id, isset($path) ? $path : null);
+        $request = $this->service->update($request->all(), $projeto_id);
 
         session()->flash('success', [
             'success' => $request['success'],
