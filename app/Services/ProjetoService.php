@@ -6,29 +6,32 @@ use App\Repositories\ProjetoRepository;
 use Exception;
 use App\Validators\ProjetoValidator;
 use Prettus\Validator\Contracts\ValidatorInterface;
-use Illuminate\Database\QueryException;
-use Prettus\Validator\Exceptions\ValidatorException;
+use App\Exceptions\Exceptions;
 
 class ProjetoService
 {
 
     private $repository;
     private $validator;
+    private $exceptions;
 
 
-    public function __construct(ProjetoRepository $repository, ProjetoValidator $validator)
+    public function __construct(ProjetoRepository $repository, ProjetoValidator $validator, Exceptions $exceptions)
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->exceptions = $exceptions;
     }
 
     public function store(array $data, $path)
-    {   
-        if($path)
-        $data["imagem"] = 'storage/' . $path;
-        
-        
+    {
+
+
         try {
+
+            if ($path)
+                $data["imagem"] = 'storage/' . $path;
+
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $projeto = $this->repository->create($data);
@@ -39,23 +42,18 @@ class ProjetoService
                 'data' => $projeto,
             ];
         } catch (Exception $e) {
-            switch (get_class($e)) {
-                case QueryException::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                case ValidatorException::class:
-                    return ['success' => false, 'messages' => $e->getMessageBag()];
-                case Exception::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                default:
-                    return ['success' => false, 'messages' => get_class($e)];
-            }
+         return  $this->exceptions->insertException($e);
         }
     }
 
-    public function update(array $data, $projeto_id)
+    public function update(array $data, $projeto_id, $path)
     {
 
         try {
+
+            if ($path)
+                $data["imagem"] = 'storage/' . $path;
+
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
             $projeto = $this->repository->update($data, $projeto_id);
 
@@ -66,21 +64,10 @@ class ProjetoService
 
             ];
         } catch (Exception $e) {
-
-            switch (get_class($e)) {
-                case QueryException::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                case ValidatorException::class:
-                    return ['success' => false, 'messages' => $e->getMessageBag()];
-                case Exception::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                default:
-                    return ['success' => false, 'messages' => get_class($e)];
-            }
+            $this->exceptions->insertException($e);
         }
     }
-    public function projetoStore($projeto_id, $data)
-    { }
+
     public function destroy($projeto_id)
     {
 
@@ -88,16 +75,7 @@ class ProjetoService
             $this->repository->delete($projeto_id);
         } catch (Exception $e) {
 
-            switch (get_class($e)) {
-                case QueryException::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                case ValidatorException::class:
-                    return ['success' => false, 'messages' => $e->getMessageBag()];
-                case Exception::class:
-                    return ['success' => false, 'messages' => $e->getMessage()];
-                default:
-                    return ['success' => false, 'messages' => get_class($e)];
-            }
+            $this->exceptions->insertException($e);
         }
     }
 }

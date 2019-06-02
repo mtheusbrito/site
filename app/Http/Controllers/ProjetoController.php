@@ -24,11 +24,7 @@ class ProjetoController extends Controller
     }
     public function index()
     {
-        $projetos = $this->repository->all();
-        return view(
-            'projetos.index',
-            ['projetos' => $projetos]
-        );
+        return view('projetos.index');
     }
 
     public function paginate()
@@ -48,17 +44,12 @@ class ProjetoController extends Controller
     public function store(ProjetoCreateRequest $request)
     {
         if ($request->hasFile('imagem')) {
-
             $file = $request->file('imagem');
-
             $filename   = time() . '.' . $file->getClientOriginalExtension();
-
             $path = $file->storeAs('projetos', $filename);
-            $request = $this->service->store($request->all(), $path);
-        } else {
-            $request = $this->service->store($request->all(), null);
         }
 
+        $request = $this->service->store($request->all(), isset($path) ? $path : null);
         $projeto = $request['success'] ? $request['data'] : null;
 
 
@@ -77,7 +68,12 @@ class ProjetoController extends Controller
     }
     public function update(ProjetoUpdateRequest $request, $projeto_id)
     {
-        $request = $this->service->update($request->all(), $projeto_id);
+        if ($request->hasFile('imagem')) {
+            $file = $request->file('imagem');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('projetos', $filename);
+        }
+        $request = $this->service->update($request->all(), $projeto_id, isset($path) ? $path : null);
 
         session()->flash('success', [
             'success' => $request['success'],
