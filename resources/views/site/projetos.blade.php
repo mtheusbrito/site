@@ -30,43 +30,20 @@
     </div>
 
     <hr class="featurette-divider">
+    @foreach ($projetos as $projeto)
     <div class="row featurette">
-        <div class="col-md-8 order-md-1">
-            <h2 class="featurette-heading">Projeto 1</h2>
-            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-            <p class="lead"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <div class="col-md-8 order-md-1">
+            <h2 class="featurette-heading">{{$projeto->titulo}}</h2>
+            <h3>{{ $projeto->subtitulo }}</h3>
+                <p class="lead"> {{$projeto->descricao}}</p>
+            </div>
+            <div class="col-md-4 order-md-2">
+                <img class="featurette-image img-fluid mx-auto" src="{{ asset($projeto->imagem) }}" alt="Imagem">
+            </div>
+    
         </div>
-        <div class="col-md-4 order-md-2">
-            <img class="featurette-image img-fluid mx-auto" src="/img/500x500.jpg" alt="Imagem">
-        </div>
-
-    </div>
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-8 order-md-2">
-            <h2 class="featurette-heading">Projeto 2</h2>
-            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-            <p class="lead">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-        </div>
-        <div class="col-md-4 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" src="/img/500x500.jpg" alt="Imagem">
-        </div>
-
-    </div>
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-8 order-md-1">
-            <h2 class="featurette-heading">Projeto 3</h2>
-            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-            <p class="lead">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-        </div>
-        <div class="col-md-4 order-md-2">
-            <img class="featurette-image img-fluid mx-auto" src="/img/500x500.jpg" alt="Imagem">
-        </div>
-
-    </div>
-    <hr class="featurette-divider">
-</div>
+        <hr class="featurette-divider">
+    @endforeach
+        {!! $projetos->links() !!}
+   </div>
 @endsection

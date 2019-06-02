@@ -1,9 +1,19 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Repositories\ProjetoRepository;
+
 class SiteController extends Controller
 {
 
+    protected $projetoRepository;
+
+
+
+    public function __construct(ProjetoRepository $projetoRepository)
+    {
+        $this->projetoRepository = $projetoRepository;
+    }
     public function inicio()
     {
         return view('site.inicio');
@@ -15,7 +25,8 @@ class SiteController extends Controller
     }
     public function projetos()
     {
-        return view('site.projetos');
+        $projetos = $this->projetoRepository->paginate(3);
+        return view('site.projetos', ['projetos' => $projetos]);
     }
     public function solucoes()
     {
