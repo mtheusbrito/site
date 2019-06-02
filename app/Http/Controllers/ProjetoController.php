@@ -47,31 +47,18 @@ class ProjetoController extends Controller
     }
     public function store(ProjetoCreateRequest $request)
     {
-
         if ($request->hasFile('imagem')) {
 
-            $name = str_random(28);
-            $extenstion = $request->imagem->extension();
+            $file = $request->file('imagem');
 
-            $nameFile = "{$name}.{$extenstion}";
-            // dd($nameFile);
-            $upload = $request->imagem->storeAs('projetos', $nameFile);
+            $filename   = time() . '.' . $file->getClientOriginalExtension();
 
-            //setando link
-            $request['imagem'] = $nameFile;
-
-
-            // dd($request['imagem']);
-
-            // if (!$upload)
-            //     return redirect()
-            //         ->back()
-            //         ->with('erro', 'Falha ao fazer upload da imagem');
+            $path = $file->storeAs('projetos', $filename);
+            $request = $this->service->store($request->all(), $path);
+        } else {
+            $request = $this->service->store($request->all(), null);
         }
 
-
-
-        $request = $this->service->store($request->all());
         $projeto = $request['success'] ? $request['data'] : null;
 
 

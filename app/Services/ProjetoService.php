@@ -22,10 +22,12 @@ class ProjetoService
         $this->validator = $validator;
     }
 
-    public function store(array $data)
-    {
-
-
+    public function store(array $data, $path)
+    {   
+        if($path)
+        $data["imagem"] = 'storage/' . $path;
+        
+        
         try {
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
