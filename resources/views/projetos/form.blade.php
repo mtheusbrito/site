@@ -8,7 +8,7 @@
 <label class="col-sm-2 col-form-label"></label>
 @if(isset($projeto->imagem))
 
-    <img width="300" height="200" src="{{ asset($projeto->imagem) }}"> 
+    <img width="300" height="300" src="{{ asset($projeto->imagem) }}"> 
 @endif
 
 </div>
