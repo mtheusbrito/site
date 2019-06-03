@@ -2,17 +2,20 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\ProjetoRepository;
+use App\Repositories\MembroRepository;
 
 class SiteController extends Controller
 {
 
     protected $projetoRepository;
+    protected $membroRepository;
 
 
 
-    public function __construct(ProjetoRepository $projetoRepository)
+    public function __construct(ProjetoRepository $projetoRepository, MembroRepository $membroRepository)
     {
         $this->projetoRepository = $projetoRepository;
+        $this->membroRepository = $membroRepository;
     }
     public function inicio()
     {
@@ -21,7 +24,8 @@ class SiteController extends Controller
 
     public function empresa()
     {
-        return view('site.empresa');
+        $membros = $this->membroRepository->all();
+        return view('site.empresa', ['membros' => $membros]);
     }
     public function projetos()
     {

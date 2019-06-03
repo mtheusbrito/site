@@ -117,24 +117,17 @@
     </div>
     <hr class="featurette-divider">
     <h2 class="featurette-heading" style="text-align: center">Nossa equipe</h2>
+
     <div class="row featurette">
+        @foreach ($membros as $membro)
         <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="100" height="100">
-            <h3>Matheus Brito</h3>
-            <p>Desenvolvedor web</p>
-            <a href="mailto:mtheus.dev@gmail.com"><i class="far fa-envelope"></i></a>
+            <img class="rounded-circle" src="{{ $membro->avatar }}" alt="Generic placeholder image" width="100" height="100">
+            <h3>{{ $membro->nome }}</h3>
+            <p>{{ $membro->cargo }}</p>
+            <a href="mailto:{{ $membro->email }}"><i class="far fa-envelope"></i></a>
 
         </div>
-        <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="100" height="100">
-            <h3>Pedro Henrrique Poiani</h3>
-            <p>Desenvolvedor web</p>
-            <a href="mailto:pedropoiani@gmail.com"><i class="far fa-envelope"></i></a>
-        </div>
-        <div class="col-lg-4">
-        </div>
-        <div class="col-lg-4">
-        </div>
+        @endforeach
     </div>
     <hr class="featurette-divider">
 

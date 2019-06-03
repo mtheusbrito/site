@@ -26,7 +26,7 @@
                                         <label for="usuario">Email</label>
                                         <input id="email" type="email" class="form-control" name="email" required autofocus>
                                         <div class="invalid-feedback">
-                                            Email invalido
+                                            Informe seu email
                                         </div>
                                     </div>
 
