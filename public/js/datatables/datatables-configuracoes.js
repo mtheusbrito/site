@@ -1,6 +1,18 @@
 (function($, DataTable) {
     $.extend(true, DataTable.defaults, {
-        language: {
+        "dom": '<"dt-buttons"Bf><"clear">lirtp',
+        "buttons": [
+
+            { extend: 'copy', text: 'Copiar' }, 'excel', 'pdf',
+        ],
+        "language": {
+            "buttons": {
+                "copyTitle": "Copiado para área de transferencia",
+                "copySuccess": {
+                    _: "%d item's copiado's",
+                    1: "item's copiado's"
+                }
+            },
             "sEmptyTable": "Nenhum registro encontrado",
             "sProcessing": "A processar...",
             "sLengthMenu": "Mostrar _MENU_ registos",
@@ -9,8 +21,9 @@
             "sInfoEmpty": "Mostrando de 0 até 0 de 0 registos",
             "sInfoFiltered": "(filtrado de _MAX_ registos no total)",
             "sInfoPostFix": "",
-            "sSearch": "Procurar:",
+            "search": "<i class='fa fa-search'></i>",
             "sUrl": "",
+
             "oPaginate": {
                 "sFirst": "Primeiro",
                 "sPrevious": "Anterior",

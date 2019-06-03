@@ -84,12 +84,12 @@
     }
     var btn = function(link, icon, title, className) {
         if (className == undefined)
-            className = 'btn-default';
+            className = 'btn btn-default btn-xs btn-round';
         $('[data-toggle="tooltip"]').tooltip();
 
-        return "<a class='btn " + className + " btn-round btn-sm' href='" + link +
+        return "<a class='" + className + "' href='" + link +
             "'title='" + title + "' data-toggle='tooltip' data-placement='top' data-container='body'>" +
-            "<i class='" + icon + "' aria-hidden='true'></i>" +
+            "<span class='" + icon + "' aria-hidden='true'></span>" +
             "</a>";
     }
     var btnEdit = function(link) {
@@ -101,7 +101,7 @@
     var btnDelete = function(link) {
 
 
-        return '<button onClick="eventDelete(\'' + link + '\')" class="btn btn-default btn-round btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'
+        return '<button onClick="eventDelete(\'' + link + '\')" class="btn btn-default btn-xs btn-round"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'
     }
 
     function renderProjetos(data, type, row) {
@@ -119,21 +119,24 @@
         // $('.select2').select2();
 
         $('#projetos').DataTable({
-            "ajax": {
-                "url": host + '/projetos/paginate',
-                "dataSrc": ''
+            'ajax': {
+                'url': host + '/projetos/paginate',
+                'dataSrc': ''
             },
             'columns': [
                 { title: "Titulo", data: 'titulo' },
                 { title: "Subtitulo", data: 'subtitulo' },
                 { title: "Descricao", data: 'descricao' },
                 {
-                    title: 'Opções',
+                    title: '',
                     data: null,
+                    width: '12%',
                     render: renderProjetos
                 }
 
-            ]
+            ],
+
+
         });
 
         $('#membros').DataTable({
@@ -146,7 +149,7 @@
                 { title: "Email", data: 'email' },
                 { title: "Cargo", data: 'cargo' },
                 {
-                    title: 'Opções',
+                    title: '',
                     data: null,
                     render: renderMembros
                 }
