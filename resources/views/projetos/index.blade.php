@@ -9,6 +9,7 @@
         </a>
     </div>  
 </div>
+@include('template.adm_template.flash_messages')
 <table id="projetos" class="table table-striped table-bordered" style="width:100%">
 </table>
 

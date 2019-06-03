@@ -37,7 +37,6 @@
        @include('template.adm_template.sidebar')
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="margin-bottom: 10px;">
-            @include('template.adm_template.flash_messages')
           @yield('conteudo')
     
           
