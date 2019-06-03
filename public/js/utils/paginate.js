@@ -109,6 +109,11 @@
             btnDelete(host + '/adm/projetos/' + data.id);
 
     }
+
+    function renderMembros(data, type, row) {
+        return btnEdit(host + '/adm/membros/' + data.id + '/edit') +
+            btnDelete(host + '/adm/membros/' + data.id);
+    }
     $(function() {
 
         // $('.select2').select2();
@@ -130,5 +135,24 @@
 
             ]
         });
+
+        $('#membros').DataTable({
+            "ajax": {
+                "url": host + '/membros/paginate',
+                'dataSrc': ''
+            },
+            'columns': [
+                { title: "Nome", data: 'nome' },
+                { title: "Email", data: 'email' },
+                { title: "Cargo", data: 'cargo' },
+                {
+                    title: 'Opções',
+                    data: null,
+                    render: renderMembros
+                }
+
+            ]
+
+        })
 
     });

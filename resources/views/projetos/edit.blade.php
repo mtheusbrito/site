@@ -9,7 +9,7 @@
 @include('projetos.form')
 
 
-@include('template.formulario.submit',['input' => 'Atuaalizar', 'attributes'=> [ 'class'=> 'btn btn-primary', 'required' => true]])
+@include('template.formulario.submit',['input' => 'Atualizar', 'attributes'=> [ 'class'=> 'btn btn-primary', 'required' => true]])
 
 {!! Form::close() !!}
         </div>

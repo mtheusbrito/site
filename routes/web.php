@@ -25,11 +25,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/adm', 'AdmController@index')->name('adm.index');
 
     Route::resource('/adm/projetos', 'ProjetoController');
-
+    Route::resource('/adm/membros', 'MembrosController');
 
 
     //paginates
     Route::get('/projetos/paginate', 'ProjetoController@paginate')->name('projetos.paginate');
+    Route::get('/membros/paginate', 'MembrosController@paginate')->name('membros.paginate');
 });
 
 

@@ -1,21 +1,20 @@
 <?php
+
 namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\ProjetoRepository;
-
-use App\Validators\ProjetoValidator;
-use App\Entities\Projeto;
+use App\Repositories\MembroRepository;
+use App\Entities\Membro;
+use App\Validators\MembroValidator;
 
 /**
- * Class InstituitionRepositoryEloquent.
+ * Class MembroRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class ProjetoRepositoryEloquent extends BaseRepository implements ProjetoRepository
+class MembroRepositoryEloquent extends BaseRepository implements MembroRepository
 {
-
     /**
      * Specify Model class name
      *
@@ -23,17 +22,21 @@ class ProjetoRepositoryEloquent extends BaseRepository implements ProjetoReposit
      */
     public function model()
     {
-        return Projeto::class;
+        return Membro::class;
     }
+
     /**
-     * Specify Validator class name
-     *
-     * @return mixed
-     */
+    * Specify Validator class name
+    *
+    * @return mixed
+    */
     public function validator()
     {
-        return ProjetoValidator::class;
+
+        return MembroValidator::class;
     }
+
+
     /**
      * Boot up the repository, pushing criteria
      */
@@ -41,4 +44,5 @@ class ProjetoRepositoryEloquent extends BaseRepository implements ProjetoReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+    
 }
