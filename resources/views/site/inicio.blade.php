@@ -2,32 +2,24 @@
 @section('conteudo')
 <div id="myCarosel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#myCarosel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarosel" data-slide-to="1"></li>
-        <li data-target="#myCarosel" data-slide-to="2"></li>
+        @foreach ($slides as $key=>$slide)
+        <li data-target="#myCarosel" data-slide-to="{{$key}}" class="{{ $key == 0 ? 'active': ''}}"></li>
+        @endforeach
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="/img/slide.jpg" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem Ipsum</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="/img/slide.jpg" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem Ipsum</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="/img/slide.jpg" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem Ipsum</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            </div>
-        </div>
+            @foreach ($slides as $key=>$slide)
+    <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
+                  @if (isset($slide->imagem))
+                  <img class="d-block w-100" src="{{ asset($slide->imagem) }}" alt="First slide">
+               
+                  @endif
+                   <div class="carousel-caption d-none d-md-block">
+                   <h5>{{ $slide->titulo }}</h5>
+                   <p>{{ $slide->texto }}</p>
+                  </div>
+              </div>
+            @endforeach
+
     </div>
     <a class="carousel-control-prev" href="#myCarosel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

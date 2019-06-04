@@ -109,7 +109,6 @@ class MembrosController extends Controller
 
     public function paginate()
     {
-
         $membros = $this->repository->all();
         return Response::json($membros);
     }

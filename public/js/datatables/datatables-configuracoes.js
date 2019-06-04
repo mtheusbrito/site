@@ -10,7 +10,7 @@
                 "copyTitle": "Copiado para área de transferencia",
                 "copySuccess": {
                     _: "%d item's copiado's",
-                    1: "item's copiado's"
+                    1: "1 item foi copiado"
                 }
             },
             "sEmptyTable": "Nenhum registro encontrado",

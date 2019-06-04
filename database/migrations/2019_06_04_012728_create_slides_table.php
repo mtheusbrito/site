@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+/**
+ * Class CreateSlidesTable.
+ */
+class CreateSlidesTable extends Migration
+{
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('slides', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('titulo');
+			$table->text('texto');
+			$table->text('imagem');
+
+			
+			$table->timestampsTz();
+			$table->softDeletes();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('slides');
+	}
+}

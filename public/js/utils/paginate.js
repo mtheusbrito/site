@@ -6,6 +6,10 @@
 
     } else {
         //producao
+
+
+        host = 'http://14634e79.ngrok.io';
+        console.log(host);
     }
 
 
@@ -114,6 +118,11 @@
         return btnEdit(host + '/adm/membros/' + data.id + '/edit') +
             btnDelete(host + '/adm/membros/' + data.id);
     }
+
+    function renderSlides(data, type, row) {
+        return btnEdit(host + '/adm/slides/' + data.id + '/edit') +
+            btnDelete(host + '/adm/slides/' + data.id);
+    }
     $(function() {
 
         // $('.select2').select2();
@@ -156,6 +165,26 @@
 
             ]
 
-        })
+        });
+
+        $('#slides').DataTable({
+            "ajax": {
+                "url": host + '/slides/paginate',
+                'dataSrc': ''
+            },
+            'columns': [
+                { title: "Tituto", data: 'titulo' },
+                { title: "texto", data: 'texto' },
+                {
+                    title: '',
+                    data: null,
+                    render: renderSlides
+                }
+
+            ]
+
+        });
+
+
 
     });
